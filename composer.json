@@ -11,10 +11,19 @@
     "require": {
         "php": "^8.2",
         "laravel/framework": "^12.0",
-        "laravel/tinker": "^2.10.1"
+        "laravel/sanctum": "^4.0",
+        "laravel/tinker": "^2.10.1",
+        "laravolt/avatar": "^6.2",
+        "spatie/laravel-permission": "^6.19",
+        "spatie/laravel-translatable": "^6.11"
     },
     "require-dev": {
+        "barryvdh/laravel-debugbar": "^3.15",
         "fakerphp/faker": "^1.23",
+        "laravel-lang/lang": "^15.21",
+        "laravel-lang/locales": "^2.10",
+        "laravel-lang/publisher": "^16.6",
+        "laravel/breeze": "^2.3",
         "laravel/pail": "^1.2.2",
         "laravel/pint": "^1.13",
         "laravel/sail": "^1.41",

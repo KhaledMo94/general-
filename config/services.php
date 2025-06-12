@@ -35,4 +35,8 @@ return [
         ],
     ],
 
+    'firebase'  =>[
+        'phone_verification_key'    =>env('FIREBASE_API_KEY'),
+    ],
+
 ];
