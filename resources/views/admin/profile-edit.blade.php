@@ -29,33 +29,17 @@
                             </div>
                         </div>
 
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="">{{ __('Phone') }}</label>
-                                    <input type="text" name="phone_number" class="form-control"
-                                        value="{{ Auth::user()->phone_number }}">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="">{{ __('Country Code') }}</label>
-                                    <input type="text" name="country_code" class="form-control"
-                                        value="{{ Auth::user()->country_code }}">
-                                </div>
-                            </div>
-                        </div>
-
                         <div class="form-group">
                             <label for="">{{ __('Profile Image') }}</label>
                             <div>
-                                <img src="{{asset('storage/'.Auth::user()->image) }}"
+                                <img id="profileImage" src="{{asset('storage/'.Auth::user()->image) }}"
                                     class="w_200" alt="">
                             </div>
                             <input type="file" name="image" accept="image/*" />
+                            <small class="form-text text-muted">{{ __('Leave blank if you don\'t want to change it.') }}</small>
+                            <button type="button" class="mt-2 btn btn-outline-danger btn-sm" id="deleteImageButton">
+                                {{ __('Delete Image') }}
+                            </button>
                         </div>
                         <button type="submit" class="btn btn-success">{{ __('Update') }}</button>
                     </div>
@@ -64,6 +48,33 @@
         </div>
     </div>
 
+    <script>
+        $(document).ready(function() {
+            $('#deleteImageButton').click(function(){
+                $('#profileImage').hide();
+                console.log('profile image hided');
+                $('form').append('<input type="hidden" id="hidden-input" name="remove_img" value="1" >');
+                console.log('hidden input appended');
+                $(this).hide();
+                console.log('button hide');
+            });
+            $('input[name="image"]').on('change',function(e){
+                const file = e.target.files[0];
+                console.log(file);
+                if(file){
+                    const reader = new FileReader();
+                    console.log(reader);
+                    reader.onload = function (e){
+                        $('#profileImage').attr('src', e.target.result).show();
+                    }
+                    reader.readAsDataURL(file);
+                    $('#hidden-input').remove();
+                    $('#deleteImageButton').show();
+                }
+                
+            });
+        });
+    </script>
 
 
 </x-dashboard.main-layout>

@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" @if (app()->getLocale() === 'ar') dir="rtl" @endif>
-
+@php
+    $settings = \App\Models\GeneralSetting::pluck('value', 'key')->toArray();
+    $logo = isset($settings['logo']) ? asset('storage/' . $settings['logo']) : asset('images/logo.png');
+    config(['app.logo' => $logo]);
+    config(['app.name' => $settings['site_name'] ?? 'Admin Panel']);
+@endphp
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">

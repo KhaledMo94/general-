@@ -25,13 +25,13 @@
         </a>
     </li>
 
-    {{-- <li class="li nav-item {{ Route::is('admins.categories.*') ? 'active' : '' }} "
-        style="{{ Route::is('admins.categories.*') ? 'background-color: darkslategrey;' : '' }}">
-        <a class="nav-link" href="{{ route('admins.categories.index') }}">
+    <li class="li nav-item {{ Route::is('admins.settings.*') ? 'active' : '' }} "
+        style="{{ Route::is('admins.settings.*') ? 'background-color: darkslategrey;' : '' }}">
+        <a class="nav-link" href="{{ route('admins.settings.edit') }}">
             <i class="far fa-caret-square-right"></i>
-            <span> {{ __('Categories') }} </span>
+            <span> {{ __('Settings') }} </span>
         </a>
-    </li> --}}
+    </li>
 
     {{-- <li class="nav-item {{ Route::is('admins.competitions.*') ? 'active' : '' }}"
         style="{{ Route::is('admins.competitions.*') ? 'background-color: darkslategrey;' : '' }}">

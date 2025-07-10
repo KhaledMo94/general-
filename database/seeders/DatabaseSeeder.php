@@ -18,12 +18,11 @@ class DatabaseSeeder extends Seeder
 
         $user = User::create([
             'name'                      =>'Super Admin',
-            'email'                     =>'admin@maakegypt.com',
+            'email'                     =>'admin@general.com',
             'password'                  =>Hash::make('9449'),
-            'phone_number'              =>'1111111111',
-            'phone_verified_at'         =>now(),
+            'email_verified_at'         =>now()
         ]);
 
-        $user->assignRole('super-admin');
+        $user->assignRole('admin');
     }
 }

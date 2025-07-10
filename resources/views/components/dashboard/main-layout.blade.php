@@ -1,5 +1,11 @@
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
+@php
+    $settings = \App\Models\GeneralSetting::pluck('value', 'key')->toArray();
+    $logo = isset($settings['logo']) ? asset('storage/' . $settings['logo']) : asset('images/logo.png');
+    config(['app.logo' => $logo]);
+    config(['app.name' => $settings['site_name'] ?? 'Admin Panel']);
+@endphp
 
 <head>
     <meta charset="utf-8">
